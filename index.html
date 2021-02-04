@@ -26,11 +26,11 @@
       return "lose";
     }
     if (player === "rock" && computer === "paper") {
-      console.log(`You loosen ${player} beats ${computer}`);
+      console.log(`You lose ${player} beats ${computer}`);
       return "lose";
     }
     if (player === "rock" && computer === "scissors") {
-      console.log(`You loose ${player} beats ${computer}`);
+      console.log(`You lose ${player} beats ${computer}`);
       return "lose";
     } else {
       console.log("Draw");
@@ -38,21 +38,27 @@
     }
   }
 
+  function declareWinner(playerVictories, computerVictories) {
+    if (playerVictories > computerVictories) {
+      return `Player WON the game by ${playerVictories} to ${computerVictories}`;
+    } else if (computerVictories > playerVictories) {
+      return `Player LOST the game by ${playerVictories} to ${computerVictories}`;
+    }
+  }
+
   function game() {
     let playerVictories = 0;
     let computerVictories = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 20; i++) {
       let result = playRound(prompt(), computerPlay());
       if (result === "win") {
         playerVictories++;
       } else if (result === "lose") {
         computerVictories++;
       }
-    }
-    if (playerVictories > computerVictories) {
-      return `Player WON the game by ${playerVictories} to ${computerVictories}`;
-    } else if (computerVictories > playerVictories) {
-      return `Player LOST the game by ${playerVictories} to ${computerVictories}`;
+      if (playerVictories === 5 || computerVictories === 5) {
+        return declareWinner(playerVictories, computerVictories);
+      }
     }
   }
 

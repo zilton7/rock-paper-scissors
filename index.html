@@ -1,0 +1,39 @@
+<script>
+  function computerPlay() {
+    const array = ["rock", "paper", "scissors"];
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  function playRound(playerSelection, computerSelection) {
+    let player = playerSelection.toLowerCase();
+    let computer = computerSelection.toLowerCase();
+    console.log(`Your selection: ${player}`);
+    console.log(`Your selection: ${computer}`);
+    if (player === "rock" && computer === "scissors") {
+      return `You win ${player} beats ${computer}`;
+    }
+    if (player === "paper" && computer === "rock") {
+      return `You win ${player} beats ${computer}`;
+    }
+    if (player === "scissors" && computer === "paper") {
+      return `You win ${player} beats ${computer}`;
+    }
+    if (player === "scissors" && computer === "rock") {
+      return `You loose ${player} beats ${computer}`;
+    }
+    if (player === "rock" && computer === "paper") {
+      return `You loosen ${player} beats ${computer}`;
+    }
+    if (player === "rock" && computer === "scissors") {
+      return `You loose ${player} beats ${computer}`;
+    } else {
+      return "Draw";
+    }
+  }
+
+  function game() {
+    return playRound(prompt(), computerPlay());
+  }
+
+  console.log(game());
+</script>
